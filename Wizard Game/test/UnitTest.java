@@ -41,32 +41,102 @@ public class UnitTest {
     }
     
     @Test
-    public void TestDriverA() throws AWTException{
-        System.out.println("Test A begin");
+    public void TestDriverA1() throws AWTException{
+        System.out.println("Test A1 begin");
+        Robot Jess = new Robot();
+        Jess.keyPress(65);
+        Jess.delay(300);
+        assertEquals(GameDriverInstance.handler.isLeft(), true);
+    }
+    
+    @Test
+    public void TestDriverA2() throws AWTException {
+        System.out.println("Test A2 begin");
+        GameObject G = GameDriverInstance.handler.object.get(64);
+        int xBefore = G.getX();
+        Robot Jess = new Robot();
+        Jess.keyPress(65);
+        Jess.delay(300);
+        int xAfter = G.getX();
+        boolean ans = false;
+        if (xBefore != xAfter) {
+            ans = true;
+        }
+        assertEquals(ans, true);
+    }
+    
+    @Test
+    public void TestDriverW1() throws AWTException{
+        System.out.println("Test W1 begin");
+        Robot Jess = new Robot();
+        Jess.keyPress(87);
+        Jess.delay(300);
+        assertEquals(GameDriverInstance.handler.isUp(), true);
+    }
+    
+    @Test
+    public void TestDriverW2() throws AWTException {
+        System.out.println("Test W2 begin");
+        GameObject G = GameDriverInstance.handler.object.get(64);
+        int yBefore = G.getY();
+        Robot Jess = new Robot();
+        Jess.keyPress(87);
+        Jess.delay(300);
+        int yAfter = G.getY();
+        boolean ans = false;
+        if (yBefore != yAfter) {
+            ans = true;
+        }
+        assertEquals(ans, true);
+    }
+    
+    @Test
+    public void TestDriverS1() throws AWTException{
+        System.out.println("Test S1 begin");
         Robot Jess = new Robot();
         Jess.keyPress(83);
-        System.out.println("Hello World" + GameDriverInstance.handler.isLeft());
-        
-        Jess.delay(1000);
+        Jess.delay(300);
         assertEquals(GameDriverInstance.handler.isDown(), true);
     }
-   
+    
     @Test
-    public void TestDriverD() throws AWTException {
-        System.out.println("Test D begin");
+    public void TestDriverS2() throws AWTException {
+        System.out.println("Test S2 begin");
+        GameObject G = GameDriverInstance.handler.object.get(64);
+        int yBefore = G.getY();
+        Robot Jess = new Robot();
+        Jess.keyPress(83);
+        Jess.delay(300);
+        int yAfter = G.getY();
+        boolean ans = false;
+        if (yBefore != yAfter) {
+            ans = true;
+        }
+        assertEquals(ans, true);
+    }
+    
+    @Test
+    public void TestDriverD1() throws AWTException{
+        System.out.println("Test D1 begin");
         Robot Jess = new Robot();
         Jess.keyPress(68);
-        System.out.println("we better get here");
-        Jess.delay(6900);
-    
+        Jess.delay(300);
         assertEquals(GameDriverInstance.handler.isRight(), true);
-		
-        System.out.println("Test B begin");
-        GameObject G = GameDriverInstance.handler.object.get(0);
+    }
+    
+    @Test
+    public void TestDriverD2() throws AWTException {
+        System.out.println("Test D2 begin");
+        GameObject G = GameDriverInstance.handler.object.get(64);
         int xBefore = G.getX();
-        Robot Jess2 = new Robot();
-        Jess2.keyPress(68);
-        Jess2.delay(3);
+        Robot Jess = new Robot();
+        Jess.keyPress(68);
+        Jess.delay(300);
         int xAfter = G.getX();
-    } 
+        boolean ans = false;
+        if (xBefore != xAfter) {
+            ans = true;
+        }
+        assertEquals(ans, true);
+    }
 }
