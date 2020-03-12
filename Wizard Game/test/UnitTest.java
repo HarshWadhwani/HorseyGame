@@ -50,21 +50,23 @@ public class UnitTest {
         Jess.delay(1000);
         assertEquals(GameDriverInstance.handler.isDown(), true);
     }
+   
     @Test
-    public void TestDriverB() throws AWTException{  
+    public void TestDriverD() throws AWTException {
+        System.out.println("Test D begin");
         Robot Jess = new Robot();
-        Jess.keyPress(83);
-        System.out.println("Test S begin");
-        GameObject G = GameDriverInstance.handler.object.get(64);
-        int xBefore = G.getY();
-        System.out.println(G.getY());
-        Jess.delay(2000);
-        int xAfter = G.getY();
-        System.out.println(G.getY());
-        boolean change = false;
-        if (xBefore != xAfter) {
-            change = true;
-        }
-        assertEquals(change,true);
-    }   
+        Jess.keyPress(68);
+        System.out.println("we better get here");
+        Jess.delay(6900);
+    
+        assertEquals(GameDriverInstance.handler.isRight(), true);
+		
+        System.out.println("Test B begin");
+        GameObject G = GameDriverInstance.handler.object.get(0);
+        int xBefore = G.getX();
+        Robot Jess2 = new Robot();
+        Jess2.keyPress(68);
+        Jess2.delay(3);
+        int xAfter = G.getX();
+    } 
 }
