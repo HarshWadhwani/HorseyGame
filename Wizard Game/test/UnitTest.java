@@ -40,55 +40,31 @@ public class UnitTest {
         GameDriverInstance = null;                
     }
     
-    @Test/*
+    @Test
     public void TestDriverA() throws AWTException{
         System.out.println("Test A begin");
         Robot Jess = new Robot();
-        Jess.keyPress(65);
+        Jess.keyPress(83);
         System.out.println("Hello World" + GameDriverInstance.handler.isLeft());
-        Jess.setAutoDelay(2000);
-
-        assertEquals(GameDriverInstance.handler.isLeft(), true);
-    }*/
-    
-    public void TesrDriverVelA() throws AWTException{
-       
-        System.out.println("Test VelA begin");
-        Robot Jess = new Robot();
-        Jess.keyPress(65);
-        GameObject G = GameDriverInstance.handler.object.get(64);
-        int xBefore = G.getX();
-        Jess.delay(3000);
-        int xAfter = G.getX();
-        System.out.println(xBefore);
-        System.out.println(xAfter);
-        boolean ans = false;
-        if (xBefore != xAfter){
-            ans = true;
-        }
-        assertEquals(ans, true);
         
+        Jess.delay(1000);
+        assertEquals(GameDriverInstance.handler.isDown(), true);
     }
-    
-    @Test    
-    public void TesrDriverVelA2() throws AWTException{
-       
-        System.out.println("Test VelA begin");
+    @Test
+    public void TestDriverB() throws AWTException{  
         Robot Jess = new Robot();
-        Jess.keyPress(65);
+        Jess.keyPress(83);
+        System.out.println("Test S begin");
         GameObject G = GameDriverInstance.handler.object.get(64);
-        int xBefore = G.getX();
+        int xBefore = G.getY();
+        System.out.println(G.getY());
         Jess.delay(2000);
-        int xAfter = G.getX();
-        System.out.println(xBefore);
-        System.out.println(xAfter);
-        boolean ans = false;
-        if (xBefore != xAfter){
-            ans = true;
+        int xAfter = G.getY();
+        System.out.println(G.getY());
+        boolean change = false;
+        if (xBefore != xAfter) {
+            change = true;
         }
-        assertEquals(ans, true);
-        
-    }
-
-
+        assertEquals(change,true);
+    }   
 }
