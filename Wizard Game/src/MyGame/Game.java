@@ -1,3 +1,5 @@
+package MyGame;
+
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -14,7 +16,7 @@ public class Game extends Canvas implements Runnable {
     
     private boolean isRunning = false;
     private Thread thread;
-    private Handler handler;
+    public Handler handler;
     private Camera camera;
    
     private BufferedImage level = null;

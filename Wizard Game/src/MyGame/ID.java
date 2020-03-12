@@ -1,3 +1,5 @@
+package MyGame;
+
 
 public enum ID {
     Player(),

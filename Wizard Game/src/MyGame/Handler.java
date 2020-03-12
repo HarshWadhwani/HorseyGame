@@ -1,3 +1,5 @@
+package MyGame;
+
 
 import java.util.LinkedList;
 import java.awt.Graphics;
